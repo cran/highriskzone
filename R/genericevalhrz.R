@@ -1,4 +1,4 @@
-#' Print Brief Details of a the evaluation of a high-risk zone
+#' Print Brief Details of an evaluation of a high-risk zone
 #' 
 #' Prints a very brief description of the evaluation of a high-risk zone.
 #'
@@ -12,7 +12,7 @@
 #' @seealso \code{\link[base]{print}}, \code{\link{summary.hrzeval}}
 
 print.hrzeval <- function(x, ...){
-  cat("evaluation of a hig-risk zone based on", x$numberobs, "observed events \n")
+  cat("evaluation of a high-risk zone based on", x$numberobs, "observed events \n")
   cat("number of unobserved events:", x$numberunobserved, " \n")
   cat("number of unobserved events located outside the high-risk zone:", x$numbermiss, " \n")
 }
@@ -32,7 +32,7 @@ print.hrzeval <- function(x, ...){
 #' @seealso \code{\link[base]{summary}}, \code{\link{print.hrzeval}}
 
 summary.hrzeval <- function(object, ...){
-  cat("evaluation of a hig-risk zone based on", object$numberobs, "observed events \n")
+  cat("evaluation of a high-risk zone based on", object$numberobs, "observed events \n")
   cat("number of unobserved events:", object$numberunobserved, " \n")
   cat("number of unobserved events located outside the high-risk zone:", object$numbermiss, " \n \n")
   
@@ -46,7 +46,7 @@ summary.hrzeval <- function(object, ...){
 #' Plot a visualization of the evaluation of a high-risk zone. At least the observation window and the unobserved events 
 #' inside and outside the high-risk zone are plotted.
 #' 
-#' This is the plot method for the class \code{hrzeval}
+#' This is the plot method for the class \code{hrzeval}.
 #' 
 #' @param x evaluation of a high-risk zone (object of class "\code{hrzeval}")
 #' @param ... extra arguments passed to the generic \code{\link[graphics]{plot}} function.

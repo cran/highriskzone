@@ -1,8 +1,8 @@
-\name{est_intens}
-\alias{est_intens}
+\name{est_intens_weight}
+\alias{est_intens_weight}
 \title{Estimates the intensity of the point pattern.}
 \usage{
-est_intens(ppdata, covmatrix = NULL, weights = NULL)
+est_intens_weight(ppdata, covmatrix = NULL, weights = NULL)
 }
 \arguments{
   \item{ppdata}{data of class ppp}
@@ -17,7 +17,7 @@ est_intens(ppdata, covmatrix = NULL, weights = NULL)
 A list of \item{ intensest }{ Estimated intensity (object
 of class "im", see \code{\link[spatstat]{density.ppp}}). }
 \item{ covmatrix }{ Covariance matrix. If \code{covmatrix =
-NULL}, the matrix is estimated by \code{\link[ks]{Hscv}}. }
+NULL} the matrix is estimated by \code{\link[ks]{Hscv}}. }
 }
 \description{
 Estimates the intensity of the point pattern by a kernel
