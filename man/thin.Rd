@@ -2,7 +2,7 @@
 \alias{thin}
 \title{Thinning of the observations (for evaluating the method)}
 \usage{
-  thin(full, nxprob)
+thin(full, nxprob)
 }
 \arguments{
   \item{full}{all observations of the point pattern}
@@ -10,17 +10,21 @@
   \item{nxprob}{probability of having unobserved events}
 }
 \value{
-  A list of of observed and unobserved point patterns. Both
-  of class ppp.
+A list of observed and unobserved point patterns. Both of
+class ppp.
 }
 \description{
-  The tinning is done by drawing independently from a
-  Bernoulli distribution. Function is needed for functions
-  eval_method, sim_clintens, sim_intens
+The thinning is done by drawing independently from a
+Bernoulli distribution. This function is needed for
+functions eval_method, sim_clintens, sim_intens
+}
+\examples{
+data(craterB)
+ thdata <- thin(craterB, nxprob=0.1)
+ thdata
+ plot(thdata$observed); points(thdata$unobserved, col=4)
 }
 \seealso{
-  \code{\link[stats]{rbinom}}, \code{\link[spatstat]{ppp}}
-  data(craterB) thdata <- thin(craterB, nxprob=0.1) thdata
-  plot(thdata$observed); points(thdata$unobserved, col=4)
+\code{\link[stats]{rbinom}}, \code{\link[spatstat]{ppp}}
 }
 

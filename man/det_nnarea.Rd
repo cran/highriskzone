@@ -1,11 +1,11 @@
 \name{det_nnarea}
 \alias{det_nnarea}
-\title{Determination of the area of a high-risk zone using the next neighbour distance.}
+\title{Determination of the area of a high-risk zone using the nearest-neighbour distance.}
 \usage{
-  det_nnarea(cutoffval, distancemap, win)
+det_nnarea(cutoffval, distancemap, win)
 }
 \arguments{
-  \item{cutoffval}{distance used ...?}
+  \item{cutoffval}{distance used as radius of the discs}
 
   \item{distancemap}{distance map (object of class "im",
   see \code{\link[spatstat]{distmap}}): distance of every
@@ -14,14 +14,14 @@
   \item{win}{observation window of class owin}
 }
 \value{
-  A numerical value giving the area of the window.
+A numerical value giving the area of the window.
 }
 \description{
-  Used in function det_radius.
+Used in function det_radius.
 }
 \seealso{
-  \code{\link[spatstat]{eval.im}},
-  \code{\link[spatstat]{owin}},
-  \code{\link[spatstat]{area.owin}}
+\code{\link[spatstat]{eval.im}},
+\code{\link[spatstat]{owin}},
+\code{\link[spatstat]{area.owin}}
 }
 

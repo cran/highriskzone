@@ -2,8 +2,7 @@
 \alias{sim_nsprocess}
 \title{Simulation of the Neyman-Scott process.}
 \usage{
-  sim_nsprocess(ppdata, intens, radius, clustering = 5,
-    thinning = 0)
+sim_nsprocess(ppdata, intens, radius, clustering = 5, thinning = 0)
 }
 \arguments{
   \item{ppdata}{observed point pattern whose estimated
@@ -19,22 +18,23 @@
   \item{clustering}{a value larger or equal 1 which
   describes the amount of clustering; the adjusted
   estimated intensity of the observed pattern is divided by
-  this value; it also is the parameter of the Poisson
+  this value; it is also the parameter of the Poisson
   distribution for the number of points per cluster}
 
   \item{thinning}{constant thinning probability (in case
   the observed pattern is a thinned version of a full
-  pattern)}
+  pattern); usually equal to the probability of having
+  unobserved events}
 }
 \value{
-  The simulated point pattern (an object of class "ppp").
-  Additionally, some intermediate results of the simulation
-  are returned as attributes of this point pattern: see
-  \code{\link[spatstat]{rNeymanScott}}.
+The simulated point pattern (an object of class "ppp").
+Additionally, some intermediate results of the simulation
+are returned as attributes of this point pattern: see
+\code{\link[spatstat]{rNeymanScott}}.
 }
 \description{
-  Simulation of the Neyman-Scott process. Only applicable
-  if the intensity was estimated for an appropriatedly
-  enlarged window. More details in \code{sim_nsppp}.
+Simulation of the Neyman-Scott process. Only applicable if
+the intensity was estimated for an appropriately enlarged
+window. More details in \code{sim_nsppp}.
 }
 

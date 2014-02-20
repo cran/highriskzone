@@ -1,8 +1,8 @@
-\name{det_nsintens}
-\alias{det_nsintens}
-\title{Determination of the intensity for the Neyman Scott simulation.}
+\name{det_nsintens_restr}
+\alias{det_nsintens_restr}
+\title{Determination of the intensity for the Neyman-Scott simulation.}
 \usage{
-det_nsintens(ppdata, radius)
+det_nsintens_restr(ppdata, radius, weights)
 }
 \arguments{
   \item{ppdata}{observed point pattern whose estimated
@@ -11,13 +11,17 @@ det_nsintens(ppdata, radius)
 
   \item{radius}{radius of the circles around the parent
   points in which the cluster points are located}
+
+  \item{weights}{Vector of observation probabilities
+  associated with the observations contained in
+  \code{ppdata}.}
 }
 \value{
 A pixel image (object of class "im"). See
 \code{\link[spatstat]{density.ppp}}.
 }
 \description{
-Used in function sim_nsppp.
+Used in function bootcor_restr.
 }
 \seealso{
 \code{\link[spatstat]{density.ppp}},
