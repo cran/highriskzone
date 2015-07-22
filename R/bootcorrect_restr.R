@@ -53,15 +53,17 @@
 #'          this value; it also is the parameter of the Poisson distribution
 #'          for the number of points per cluster. Only used for \code{simulate = "clintens"}.
 #' @param verbose logical. Should information on tested values/progress be printed?
+#' @importFrom stats quantile
+#' @importFrom stats rbinom
 #' @export
 #' @return An object of class bootcorr, which consists of a list of the final value for alpha (\code{alphastar})
 #'         and a data.frame \code{course} containing information on the simulation course, e.g. the tested values.
-#' @references Monia Mahling, Michael \enc{Höhle}{Hoehle} & Helmut \enc{Küchenhoff}{Kuechenhoff} (2013),
+#' @references Monia Mahling, Michael \enc{H?hle}{Hoehle} & Helmut \enc{K?chenhoff}{Kuechenhoff} (2013),
 #' \emph{Determining high-risk zones for unexploded World War II bombs by using point process methodology.}
 #' Journal of the Royal Statistical Society, Series C 62(2), 181-199.
 #' @references Monia Mahling (2013),
 #' \emph{Determining high-risk zones by using spatial point process methodology.}
-#' Ph.D. thesis, Cuvillier Verlag \enc{Göttingen}{Goettingen},
+#' Ph.D. thesis, Cuvillier Verlag \enc{G?ttingen}{Goettingen},
 #' available online: http://edoc.ub.uni-muenchen.de/15886/
 #' Chapter 6 and Appendix A
 #' @seealso \code{\link[highriskzone]{det_hrz}}, \code{\link[highriskzone]{eval_method}}, \code{\link[highriskzone]{bootcor}}
@@ -70,14 +72,16 @@
 #' set.seed(4321)
 
 #'# define restriction area
-#'restrwin <- owin(xrange=craterA$window$xrange, yrange=craterA$window$yrange,
-#'  poly=list(x=c(1500, 1500, 2000, 2000), y=c(2000, 1500, 1500, 2000)))
+#'restrwin <- spatstat::owin(xrange = craterA$window$xrange, 
+#'                           yrange = craterA$window$yrange,
+#'                           poly = list(x = c(1500, 1500, 2000, 2000), 
+#'                                       y = c(2000, 1500, 1500, 2000)))
 #'
 #'# create image of observation probability (30% inside restriction area)
-#'wim <- as.im(craterA$window, value=1)
-#'rim <- as.im(restrwin, xy=list(x=wim$xcol, y=wim$yrow))
+#'wim <- spatstat::as.im(craterA$window, value = 1)
+#'rim <- spatstat::as.im(restrwin, xy = list(x = wim$xcol, y = wim$yrow))
 #'rim$v[is.na(rim$v)] <- 0
-#'oim1 <- eval.im(wim - 0.7 * rim)
+#'oim1 <- spatstat::eval.im(wim - 0.7 * rim)
 #'
 #' \dontrun{
 #'# perform bootstrap correction

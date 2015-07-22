@@ -8,6 +8,7 @@
 #' @param full  all observations of the point pattern
 #' @param nxprob  probability of having unobserved events 
 #' @return A list of observed and unobserved point patterns. Both of class ppp.
+#' @importFrom stats rbinom
 #' @seealso \code{\link[stats]{rbinom}}, \code{\link[spatstat]{ppp}}
 #' @examples
 #'  data(craterB)
@@ -49,8 +50,8 @@ sim_intens <- function(ppdata, intensSim, nxprob) {
   
   # Warnings  
   if ( max(ppdata$window$xrange[2] - ppdata$window$xrange[1], ppdata$window$yrange[2] - ppdata$window$yrange[1])
-       /spatstat.options()$npixel > 4000 ) {
-    warning( "For given size of ppdata$window the number of pixels are too low. Set higher by using spatstat.options(npixel).")
+       /spatstat::spatstat.options()$npixel > 4000 ) {
+    warning( "For given size of ppdata$window the number of pixels are too low. Set higher by using spatstat::spatstat.options(npixel).")
   }
   
   
@@ -61,7 +62,7 @@ sim_intens <- function(ppdata, intensSim, nxprob) {
                   "rejected as lying outside the specified window. Set number of pixels higher."))
     rr <- ripras(ppsim$x, ppsim$y)
     bb <- bounding.box.xy(ppsim$x, ppsim$y)
-    bb <- bounding.box(rr, bb, ppsim$window)
+    bb <- boundingbox(rr, bb, ppsim$window)
     rejectwindow <- if (!is.null(rr)) 
       rebound.owin(rr, bb)
     else bb
@@ -98,7 +99,7 @@ sim_intens <- function(ppdata, intensSim, nxprob) {
 #' @param radius  radius of the circles around the parent points in which the cluster
 #'          points are located
 #' @return A pixel image (object of class "im"). See \code{\link[spatstat]{density.ppp}}.  
-#' @seealso \code{\link[spatstat]{density.ppp}}, \code{\link[spatstat]{bounding.box}}, 
+#' @seealso \code{\link[spatstat]{density.ppp}}, \code{\link[spatstat]{boundingbox}}, 
 #'          \code{\link[spatstat]{owin}}, \code{\link[ks]{Hscv}}
 
 
@@ -107,7 +108,7 @@ sim_intens <- function(ppdata, intensSim, nxprob) {
 det_nsintens <- function(ppdata, radius){
   
   pppsim <- ppdata
-  frameWin <- bounding.box(pppsim$window)
+  frameWin <- boundingbox(pppsim$window)
   dilatedWin <- owin(frameWin$xrange + 1.2*c(-radius, radius), frameWin$yrange + 1.2*c(-radius, radius))
   pppsim$window <- dilatedWin
   
@@ -137,6 +138,7 @@ det_nsintens <- function(ppdata, radius){
 #' @param thinning  constant thinning probability (in case the observed pattern is a
 #'          thinned version of a full pattern); usually equal to the probability of having
 #'          unobserved events
+#' @importFrom stats rpois
 #' @return The simulated point pattern (an object of class "ppp").
 #'        Additionally, some intermediate results of the simulation are returned as 
 #'        attributes of this point pattern: see \code{\link[spatstat]{rNeymanScott}}.
@@ -154,10 +156,12 @@ sim_nsprocess <- function(ppdata, intens, radius, clustering=5, thinning=0){
     n <- rpois(1, lambdaclust)
     return(runifdisc(n, radius, centre=c(x0, y0)))
   }
-  
-  resultppp <- rNeymanScott(kappa=intenssim, rmax=radius, rcluster=nclust, radius=radius, 
+#  resultppp <- rNeymanScott(kappa=intenssim, rmax=radius, rcluster=nclust, radius=radius, 
+#                            lambdaclust=clustering, win=ppdata$window)
+  resultppp <- rNeymanScott(kappa=intenssim, expand=radius, rcluster=nclust, radius=radius, 
                             lambdaclust=clustering, win=ppdata$window)
-  return(resultppp)
+
+    return(resultppp)
 }
 
 
@@ -185,7 +189,7 @@ sim_nsprocess <- function(ppdata, intens, radius, clustering=5, thinning=0){
 #' The estimation of the intensity (on an adequate window) and the
 #' simulation of the Neyman-Scott process are performed seperately,
 #' so the intensity does not need to be reestimated in every iteration.\cr
-#' The resulting process is a \enc{Matérn}{Matern} process whose parent process is an
+#' The resulting process is a \enc{Mat?rn}{Matern} process whose parent process is an
 #' inhomogeneous Poisson point process.
 #'
 #' @param ppdata  observed point pattern, whose estimated intensity (adjusted for

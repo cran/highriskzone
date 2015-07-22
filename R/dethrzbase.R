@@ -14,7 +14,7 @@
 #' @seealso \code{\link[spatstat]{eval.im}}, \code{\link[spatstat]{owin}}, \code{\link[spatstat]{area.owin}}
 
 
-#- früher area_dist
+#- fr?her area_dist
 det_nnarea <- function(cutoffval, distancemap, win){
   HRZimage <- eval.im(distancemap < cutoffval)
   safetyregion <- owin(xrange=win$xrange, yrange=win$yrange, mask=as.matrix(HRZimage))
@@ -33,12 +33,13 @@ det_nnarea <- function(cutoffval, distancemap, win){
 #'                     distance of every location in the observation window to the nearest event
 #' @param areahrz  given area of the high-risk zone
 #' @param win  observation window of class owin 
+#' @importFrom stats uniroot
 #' @return A list of 
 #'     \item{ cutoffdist }{ quantile of the nearest-neighbour distance }
 #'     \item{ thresh }{ distance }
 #' @seealso \code{\link{det_nnarea}}, \code{\link[stats]{quantile}}, \code{\link[stats]{uniroot}}
 
-#- früher dist_area 
+#- fr?her dist_area 
 det_radius <- function(ppdata, distancemap, areahrz, win){
   
   f <- function(cutoffval){
@@ -95,7 +96,7 @@ det_radius <- function(ppdata, distancemap, areahrz, win){
 #' @return value of alpha
 
 
-#- früher prob_pois
+#- fr?her prob_pois
 #* (pMiss in alpha umbenennen)
 det_alpha <- function(intens, threshold, nxprob=0.1) {
   
@@ -132,11 +133,12 @@ det_alpha <- function(intens, threshold, nxprob=0.1) {
 #' @param alpha   failure probability: probability to have at least one unobserved event
 #'                outside the high-risk zone
 #' @param nxprob  probability of having unobserved events
+#' @importFrom stats uniroot
 #' @return value of the threshold c
 #' @seealso \code{\link{det_alpha}}, \code{\link[stats]{uniroot}}
 
 
-#- früher: intens_indirect
+#- fr?her: intens_indirect
 det_threshold <- function(intens, alpha=1e-5, nxprob=0.1){
   
   f <- function(logthreshold) {
@@ -168,7 +170,7 @@ det_threshold <- function(intens, alpha=1e-5, nxprob=0.1){
 #' @seealso \code{\link[spatstat]{owin}}, \code{\link[spatstat]{area.owin}}
 
 
-#- früher intens_areahrz 
+#- fr?her intens_areahrz 
 det_area <- function(win, intensmatrix, threshold){
   
   R <- intensmatrix > threshold
@@ -191,13 +193,14 @@ det_area <- function(win, intensmatrix, threshold){
 #' @param areahrz  area of the high-risk zone 
 #' @param win  observation window
 #' @param nxprob  probability of having unbserved events  
+#' @importFrom stats uniroot
 #' @return A list of
 #'   \item{ threshold }{ Value of the threshold c. The high-risk zone is the field in which the estimated intensity 
 #'                   exceeds this value }
 #'   \item{ calccutoff }{ failure probability alpha for given area; probability to have at least unobserved event outside the high-risk zone }
 #' @seealso \code{\link{det_area}}, \code{\link{det_alpha}}
 
-#- früher: intens_area  
+#- fr?her: intens_area  
 det_thresholdfromarea <- function(intens, areahrz, win, nxprob=0.1){
   
   intensmatrix <- as.matrix(intens)
