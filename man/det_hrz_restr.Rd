@@ -56,15 +56,15 @@ Default value is 0.1.}
 }
 \value{
 An object of class "\code{highriskzone}", which is a list of
-   \item{ typehrz, criterion, cutoff }{ see arguments}
+   \item{ typehrz, criterion, cutoff, nxprob}{ see arguments}
    \item{ zone }{ Determined high-risk zone: Object of class "owin" based on a binary mask.
                   See \code{\link[spatstat]{owin}}. }
-   \item{ threshold }{ determined threshold. If criterion="area", it is either the distance (if type="dist")
-or the threshold c (for type="intens"). If criterion="indirect", it is either the quantile of the
-nearest-neighbour distance which is used as radius (if type="dist") or the threshold c (for type="intens"). If criterion="direct",
-it equals the cutoff for both types.}
+   \item{ threshold }{ determined threshold. If type = "dist" and criterion = "direct" it is the specified radius.
+   If criterion = "indirect" or "area" the determined radius used to construct a risk zone fulfilling the specified criterion 
+   and cutoff. If type = "dist" it is the specified or calculated threshold c, the maximum intensitiy of unexploded bombs 
+   outside the risk zone.}
    \item{ calccutoff }{ determined cutoff-value. For type="dist" and criterion="area", this is the
-quantile of the nearest-neighbour distance. For type="intens" and criterion="area", it is the failure
+quantile of the nearest-neighbour distance. For type="intens" and criterion="area" or "direct", it is the failure
 probability alpha. For all other criterions it is NA.}
    \item{ covmatrix }{ If not given (and \code{type="intens"}), it is estimated. See \code{\link[ks]{Hscv}}.}
    \item{ estint }{ Estimated intensity. See \code{\link[spatstat]{density.ppp}}.}
@@ -100,30 +100,29 @@ Note that for \code{criterion = "area"}, \code{cutoff} specifies the area of the
 For further information, Mahling et al. (2013) and Mahling (2013), Chapters 4 and 8 and Appendix A (References).
 }
 \examples{
-\dontrun{
- data(craterA)
- spatstat::spatstat.options(npixel=400)
-
+set.seed(1211515)
+data(craterA)
+#change npixel = 100 to 1000 to get a nicer picture
+spatstat::spatstat.options(npixel=100)
+# reduce number of observations for faster computation
+craterA <- craterA[sample(1:craterA$n, 150)]
 # define restriction area
-restrwin <- owin(xrange=craterA$window$xrange, yrange=craterA$window$yrange,
- poly=list(x=c(1500, 1500, 2000, 2000), y=c(2000, 1500, 1500, 2000)))
+restrwin <- spatstat::owin(xrange=craterA$window$xrange, yrange=craterA$window$yrange,
+                           poly=list(x=c(1500, 1500, 2000, 2000), y=c(2000, 1500, 1500, 2000)))
 
 # create image of observation probability (30\% inside restriction area)
-wim <- as.im(craterA$window, value=1)
-rim <- as.im(restrwin, xy=list(x=wim$xcol, y=wim$yrow))
+wim <- spatstat::as.im(craterA$window, value=1)
+rim <- spatstat::as.im(restrwin, xy=list(x=wim$xcol, y=wim$yrow))
 rim$v[is.na(rim$v)] <- 0
-oim1 <- eval.im(wim - 0.7 * rim)
-
+oim1 <- spatstat::eval.im(wim - 0.7 * rim)
 # determine high-risk zone by weighting the observations
 hrzi1 <- det_hrz_restr(ppdata=craterA, type = "intens", criterion = "indirect",
- cutoff = 0.4, hole=NULL, obsprobs=NULL, obsprobimage=oim1, nxprob = 0.1)
+                       cutoff = 0.4, hole=NULL, obsprobs=NULL, obsprobimage=oim1, nxprob = 0.1)
 
 # determine high-risk zone by accounting for a hole
 hrzi2 <- det_hrz_restr(ppdata=craterA, type = "intens", criterion = "indirect",
- cutoff = 0.4, hole=restrwin, obsprobs=NULL, obsprobimage=NULL, nxprob = 0.1)
-}
+                       cutoff = 0.4, hole=restrwin, obsprobs=NULL, obsprobimage=NULL, nxprob = 0.1)
 }
 \seealso{
 \code{\link[spatstat]{distmap}}, \code{\link[spatstat]{eval.im}}, \code{\link[spatstat]{owin}}
 }
-
