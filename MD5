@@ -1,11 +1,11 @@
-1a6a78ca1996a318c75ce357fbf5e57e *DESCRIPTION
+dc931b967f9b8a258f4d80dcfc520f1c *DESCRIPTION
 f552c40b3aeff0bcd9d8d0ee6c231582 *LICENSE
 35d8b5c22e000c177f1e31217df951a9 *NAMESPACE
 da1070517606bed7f60cd300dd618c84 *R/bootcorrect.R
 fef4eb6d6c1cb7f94c34ce1568372631 *R/bootcorrect_restr.R
 a43c0041bd08590557d3228325388a84 *R/data.R
 ae90370be747daba63141a4607724199 *R/det_hrz_eval_ar.R
-8693566a749f9286f21d56c85d269388 *R/det_puffer.R
+badbd0e65c9c44e02c3f29ab296620b6 *R/det_puffer.R
 eb35a46fde6cdf6df0f13073db1ac9ea *R/dethrz.R
 c270bca4bcab5e3922a90392f6527f08 *R/dethrz_restr.R
 c5419a22b77ed9fe16c529ce71290842 *R/dethrzbase.R
@@ -19,10 +19,10 @@ d028cbdd2ca3ec1e4e846c763a18dac0 *R/evalmethod.R
 097034d49a8afcce7e9ee41e76e4b447 *R/genericevalhrz.R
 afeb7d11cd0ab4d04859a5c7e0ae3528 *R/generichrz.R
 9f5934da01b10b2a6bf5eca5f1234125 *R/highriskzone-package.R
-b18c1f41024f9ff4f4cb9f5867fd3f92 *R/readpppdata.R
+dc74a6920c0494d65321af97a407fc1c *R/readpppdata.R
 563a7a8c13b50f28e74bffcc84349c99 *R/simulationbase.R
-8a49b520e60a28470f97545d65c45235 *data/craterA.RData
-e479ecd6bf78461dd30910721f2b5e4b *data/craterB.RData
+160873abffddc41fefa5e4f72bc883dc *data/craterA.RData
+a1caaeac0914c96ae8b15664dec25379 *data/craterB.RData
 27ccf3f6a39eecde23a0f52c212cddfc *man/bootcor.Rd
 6aa8dc8cdb885ea591244cf5061cd301 *man/bootcor_restr.Rd
 e1af5646893535455eaae8da221a11c7 *man/bootcorr.Rd
@@ -34,7 +34,7 @@ e1af5646893535455eaae8da221a11c7 *man/bootcorr.Rd
 e14ee03298a0fb9531e6ff8467a19189 *man/det_alpha_eval_ar.Rd
 c3bc12740d5a2ae90b95823fb04c33f8 *man/det_area.Rd
 4ac4b30fdc710716be9b7e5d109c880e *man/det_area_hole.Rd
-824c827ef4bece5f3526192e08cbe570 *man/det_guard_width.Rd
+78e21867914cb480f837436b3f60b9bc *man/det_guard_width.Rd
 2548bec01510ecd7e366457329da6d6a *man/det_hrz.Rd
 6db4837af3c665598633a14bf5d48a84 *man/det_hrz_eval_ar.Rd
 4495438f9bc76b34e7aa4035f94813b1 *man/det_hrz_restr.Rd
