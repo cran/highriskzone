@@ -1,15 +1,5 @@
-
 #' The package highriskzone provides tools to determine and evaluate high-risk zones of
 #' unobserved events by using point process methodology.
-#'
-#' \tabular{ll}{
-#' Package: \tab highriskzone\cr
-#' Type: \tab Package\cr
-#' Version: \tab 1.2\cr
-#' Date: \tab 2013-10-31\cr
-#' License: \tab MIT\cr
-#' LazyLoad: \tab yes\cr
-#' }
 #'
 #' @author
 #' Heidi Seibold \email{Heidi.Seibold@@campus.lmu.de},
@@ -20,7 +10,7 @@
 #' @name highriskzone-package
 #' @docType package
 #' @aliases package-highriskzone
-#' @import spatstat fields rgeos
+#' @import spatstat fields rgeos maps
 #' @title Determining high-risk zones by using spatial point process methodology
 #' @keywords package
 #' @references Monia Mahling, Michael \enc{Hoehle}{Hoehle} & Helmut \enc{Kuechenhoff}{Kuechenhoff} (2013),

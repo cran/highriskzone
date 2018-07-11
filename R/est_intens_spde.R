@@ -10,12 +10,11 @@
 #' only used if argument mesh is NULL
 #' @param weights (optional) integration weights for the spde model, only used if argument mesh is NULL
 #' @param alpha (optional) alpha value for the spde model, only used if argument spde is NULL
-#' @param ... additional arguments for the construction of the spde model (see \code{\link[INLA]{inla.spde2.matern}})
+#' @param ... additional arguments for the construction of the spde model (see INLA/inla.spde2.matern documentation)
 #' @param npixel number of pixel per dimension (see \code{\link[spatstat]{spatstat.options}})
 #' @importFrom methods as
 #' @importFrom deldir deldir
 #' @importFrom deldir tile.list
-#' @importFrom Matrix rBind
 #' @importFrom Matrix Diagonal
 #' @export
 #' @return A list of
@@ -33,10 +32,8 @@
 est_intens_spde <- function(coords, win=NULL, npixel=50, fine_mesh=FALSE, mesh=NULL, weights=NULL, alpha=2, ...){
   if(!requireNamespace("INLA")){
     warning("This function requires R-INLA, but the R-INLA package is not available on CRAN.\n
-         Trying to install it from source(\"https://www.math.ntnu.no/inla/givemeINLA.R\") \n 
-See www.r-inla.org for more information!
-")
-    source("https://www.math.ntnu.no/inla/givemeINLA.R")
+         Please try to install it by evaluating source(\"https://www.math.ntnu.no/inla/givemeINLA.R\") \n 
+See www.r-inla.org for more information!")
   }
   if(is.null(coords)){stop("argument coords is missing, with no default")}
   if(!is.ppp(coords)){
@@ -86,7 +83,7 @@ See www.r-inla.org for more information!
   mesh_n <- mesh$n
   y <- rep(0:1, c(mesh_n, n))
   e <- c(weights, rep(0, n))
-  A <- rBind(Diagonal(mesh_n, rep(1, mesh_n)), INLA::inla.spde.make.A(mesh, xy_coords))
+  A <- rbind(Diagonal(mesh_n, rep(1, mesh_n)), INLA::inla.spde.make.A(mesh, xy_coords))
   stack <- INLA::inla.stack(data=list(y=y, e=e), A=list(1,A), tag='crater', effects=list(list(beta0=rep(1,mesh_n+n)), list(i=1:mesh_n)))
   
   
