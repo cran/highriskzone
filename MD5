@@ -1,6 +1,6 @@
-dded435952a2c7d9575dccee49473011 *DESCRIPTION
+0d10184f9e8b902fee7d00d82099fc53 *DESCRIPTION
 f552c40b3aeff0bcd9d8d0ee6c231582 *LICENSE
-c5e0d60ba04cc3f2211eeba39568efaa *NAMESPACE
+3d0fc3572465303f3c2307aeadcef533 *NAMESPACE
 d0f8eb65611ae9d1cb6fb4b8bd8f97fe *R/bootcorrect.R
 164a10f3792e7f0f056d514d3d03eee3 *R/bootcorrect_restr.R
 e7dd26ef2c9c5d9718a90e434d6ac8c5 *R/data.R
@@ -14,13 +14,13 @@ a27c39d7593d933bf6d64115a5dcccb9 *R/est_intens_spde.R
 3992d7c5e15be2ab329c28861f7601da *R/estintens.R
 2b15fa95e15b3b30a8c6213133d04b2b *R/estintens_weight.R
 1d8c3bc278322647eb8c4a445435d5a8 *R/evalhrz.R
-a104db71af923a26644cc8d68588f9b2 *R/evalmethod.R
+44576fee9539be0cb15250fe23664802 *R/evalmethod.R
 11f412876242d3c5b6132b2f8c8ce1e2 *R/genericbootcorr.R
 097034d49a8afcce7e9ee41e76e4b447 *R/genericevalhrz.R
 12183106904246c120d939e792d93593 *R/generichrz.R
 03d34bf0b7131fe38df08e2e8882bd19 *R/highriskzone-package.R
 774935de06c7b1f1276128cdde0315b2 *R/readpppdata.R
-c2a07b2bea9b4d378b33eb4a457b9a6b *R/simulationbase.R
+e8ed9304413f73338d130749503797f0 *R/simulationbase.R
 9a470d0bcc66818ccd86860d4034ad9e *data/craterA.RData
 b9c07a96894e9f8a796ecaacbca730a8 *data/craterB.RData
 f0398906c763e122ba79dcf1f68c45d6 *man/bootcor.Rd
@@ -50,7 +50,7 @@ fe85238e24b9477bd179b58523340463 *man/est_intens.Rd
 06363c418c246f0d642f63b9ff9cafe6 *man/est_intens_spde.Rd
 28a727eb96d7bd0cc694a5533f8044df *man/est_intens_weight.Rd
 2192f35f18bbf3c415cd6ffb7611dd92 *man/eval_hrz.Rd
-1aecf0af8805ca06858b7884962b2a56 *man/eval_method.Rd
+12444ae6e29f81c4d1a33e7b477901ad *man/eval_method.Rd
 dddcdf07342908f2f25f7f32263d9a4b *man/highriskzone-package.Rd
 163ebdaa2050bd893c75007a1f0638b2 *man/plot.bootcorr.Rd
 978b64f32db24d86d2c8eb3580473776 *man/plot.highriskzone.Rd
@@ -59,9 +59,9 @@ f147ab22b3acd2f7242cc3fb2e2eb63f *man/print.bootcorr.Rd
 31e46a8af3add64077dfb61a6db50be2 *man/print.highriskzone.Rd
 e6009c8361c585d0c2855599257b80f0 *man/print.hrzeval.Rd
 dc8d83a58049a36796ced453bb70bb8e *man/read_pppdata.Rd
-64db43f620bd3482c1c1bfd2bdc2974f *man/sim_intens.Rd
-4c6775ea32fe57946e499e4fcf070ec6 *man/sim_nsppp.Rd
-8c27cffbe19efe0d052ad1db205ead6e *man/sim_nsprocess.Rd
+6264728fd0bc5c0158e25360a35051dd *man/sim_intens.Rd
+30a063ce52bf92dc57225de575b5e238 *man/sim_nsppp.Rd
+b06d441ca4d58c579742682b24f920a7 *man/sim_nsprocess.Rd
 82c78500030b1fb28ef0d81b9dc6a350 *man/summary.bootcorr.Rd
 52c1519d2a1896e74cde4dfbb7d0c229 *man/summary.highriskzone.Rd
 a45ff73b264e43c2bd2986863627a82c *man/summary.hrzeval.Rd
