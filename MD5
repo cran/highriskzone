@@ -1,6 +1,6 @@
-011ecc6d27f6740cce950c84d92445ed *DESCRIPTION
+c31af8a135f6bdd180ebddd9276b0718 *DESCRIPTION
 f552c40b3aeff0bcd9d8d0ee6c231582 *LICENSE
-2edefd7ab6c13a071e729bfb0f1903ea *NAMESPACE
+254ace0be33d05c5bc57cee72578dddb *NAMESPACE
 ee57fcce874b46d07ae7fd88a91e54a0 *R/bootcorrect.R
 b96e6747aee81c80439da429d552daaa *R/bootcorrect_restr.R
 e7dd26ef2c9c5d9718a90e434d6ac8c5 *R/data.R
@@ -10,7 +10,7 @@ e7dd26ef2c9c5d9718a90e434d6ac8c5 *R/data.R
 dbed9c8ab51bc3f6aab1d30831d4ed6c *R/dethrz_restr.R
 e7c2a89057f14ec4ab8df0a655a3a767 *R/dethrzbase.R
 737cd0677a0748430062911e051ef7bc *R/detnsintens_restr.R
-a27c39d7593d933bf6d64115a5dcccb9 *R/est_intens_spde.R
+55ff4d9876a54a0e1e50259f4477b907 *R/est_intens_spde.R
 b19bbb68f1451af8c31d081481f0f489 *R/estintens.R
 814d502d049257f63feda3ceb691606a *R/estintens_weight.R
 1d8c3bc278322647eb8c4a445435d5a8 *R/evalhrz.R
@@ -18,7 +18,7 @@ b19bbb68f1451af8c31d081481f0f489 *R/estintens.R
 11f412876242d3c5b6132b2f8c8ce1e2 *R/genericbootcorr.R
 097034d49a8afcce7e9ee41e76e4b447 *R/genericevalhrz.R
 12183106904246c120d939e792d93593 *R/generichrz.R
-03d34bf0b7131fe38df08e2e8882bd19 *R/highriskzone-package.R
+bb7ba0e56dee4512c27eed7ec2b9ef2c *R/highriskzone-package.R
 774935de06c7b1f1276128cdde0315b2 *R/readpppdata.R
 adb82a20f76af56a81404a38d11528af *R/simulationbase.R
 9a470d0bcc66818ccd86860d4034ad9e *data/craterA.RData
